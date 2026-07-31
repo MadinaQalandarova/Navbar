@@ -44,14 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePill(current, false);
   });
 
-  // ---------- THEME TOGGLE (yorug' / qorong'i) ----------
+  // ---------- (yorug' / qorong'i) ----------
   themeBtn.addEventListener("click", () => {
     const html = document.documentElement;
     const isDark = html.getAttribute("data-theme") === "dark";
     html.setAttribute("data-theme", isDark ? "light" : "dark");
   });
 
-  // ---------- LIQUID GLASS SHINE (sichqoncha harakatiga qarab yorqinlik) ----------
+  // ---------- (sichqoncha harakatiga qarab yorqinlik) ----------
   nav.addEventListener("mousemove", (e) => {
     const rect = nav.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;

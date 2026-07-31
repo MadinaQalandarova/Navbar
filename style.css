@@ -180,8 +180,6 @@ body {
   padding-bottom: 100px;
 }
 
-/* ---------- LIQUID GLASS NAVBAR ---------- */
-
 .liquid-navbar {
   position: fixed;
   bottom: 30px;
@@ -267,8 +265,6 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
   display: block;
 }
 
-/* ---------- SLIDING ACTIVE PILL ---------- */
-
 .active-pill {
   position: absolute;
   top: 6px;
@@ -286,8 +282,6 @@ html[data-theme="dark"] .theme-toggle .icon-moon {
     width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1),
     background 0.4s ease;
 }
-
-/* ---------- GLARE (liquid glass shine) ---------- */
 
 .glare {
   position: absolute;
