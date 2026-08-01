@@ -22,7 +22,6 @@
       </header>
 
       <div class="dock-wrap" id="dockWrap">
-        <!-- The bar itself, drawn as a parametric SVG path that cuts a socket around the bead -->
         <svg class="dock" id="dockSvg" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="mnPlate" x1="0" y1="0" x2="0" y2="1">
@@ -37,7 +36,6 @@
           <path class="dock__fill" id="dockPath" d=""></path>
         </svg>
 
-        <!-- Tab row sits on top of the SVG bar -->
         <div class="tabs" id="tabs" role="tablist">
           <button
             class="tab is-active"
@@ -126,7 +124,6 @@
           </button>
         </div>
 
-        <!-- The glowing bead that slides / drags along the bar -->
         <button
           class="bead"
           id="bead"

@@ -94,8 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.sqrt(Math.max(inner, 0));
   }
 
-  // exact tangent point between the shoulder circle and the bead circle,
-  // in LOCAL coordinates where the flat top line is y = 0
   function tangentPoint(cx, s, by, rb, side) {
     const r = reach(s, rb, by);
     const c1x = cx + side * r; // shoulder circle center (sits ON the line, y = s)
@@ -115,8 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const left = tangentPoint(cx, sL, EMBED, RB, -1);
     const right = tangentPoint(cx, sR, EMBED, RB, 1);
 
-    // clamp only the line-tangent x-position, keeping arcs valid, to avoid
-    // the socket ever reaching into a neighboring tab during a fast drag
     const leftLineX = Math.max(cx - maxReach, left.lineX);
     const rightLineX = Math.min(cx + maxReach, right.lineX);
 
@@ -139,17 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
     dockPath.setAttribute("d", d);
   }
 
-  /* ---------------------------------------------------
-     TAB CENTER POSITIONS (measured from real DOM layout)
-  --------------------------------------------------- */
   let centers = [];
   function measureCenters() {
     centers = tabButtons.map((btn) => btn.offsetLeft + btn.offsetWidth / 2);
   }
 
-  /* ---------------------------------------------------
-     ANIMATION STATE
-  --------------------------------------------------- */
   const state = {
     x: 0,
     prevX: 0,
@@ -214,9 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ---------------------------------------------------
-     CONTENT SYNC — hero title/subtitle + tab label + icon
-  --------------------------------------------------- */
   function setActive(index, { animate = true } = {}) {
     if (index === activeIndex && !animate) {
       /* still allow forced refresh */
@@ -257,9 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return best;
   }
 
-  /* ---------------------------------------------------
-     INTERACTIONS
-  --------------------------------------------------- */
   tabButtons.forEach((btn, i) => {
     btn.addEventListener("click", () => setActive(i));
   });
@@ -291,9 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
   bead.addEventListener("pointerup", endDrag);
   bead.addEventListener("pointercancel", endDrag);
 
-  /* ---------------------------------------------------
-     INIT
-  --------------------------------------------------- */
   function init() {
     measure();
     measureCenters();
